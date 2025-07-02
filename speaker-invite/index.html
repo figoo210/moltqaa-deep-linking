@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Speaker Invitation - Event Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        window.addEventListener('load', function() {
+            const eventId = window.location.pathname.split('/').pop();
+            const appUrl = `eventor://speaker-invite/${eventId}`;
+            setTimeout(function() {
+                window.location.href = appUrl;
+            }, 100);
+            setTimeout(function() {
+                document.getElementById('download-section').style.display = 'block';
+            }, 2000);
+        });
+        function openApp() {
+            const eventId = window.location.pathname.split('/').pop();
+            window.location.href = `eventor://speaker-invite/${eventId}`;
+        }
+        function downloadApp() {
+            window.location.href = 'https://play.google.com/store/apps/details?id=com.yourdomain.eventor';
+        }
+    </script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; }
+        .button { background: #007bff; color: white; padding: 15px 30px; border: none; border-radius: 5px; margin: 10px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .button:hover { background: #0056b3; }
+        #download-section { display: none; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>🎤 Speaker Invitation</h1>
+    <p>You've been invited to speak at our event!</p>
+    <button class="button" onclick="openApp()">Open Eventor App</button>
+    <div id="download-section">
+        <h3>Don't have the app yet?</h3>
+        <p>Download Eventor to respond to this invitation:</p>
+        <button class="button" onclick="downloadApp()">Download from Play Store</button>
+    </div>
+</body>
+</html>
